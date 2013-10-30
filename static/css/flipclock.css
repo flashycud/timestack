@@ -1,0 +1,210 @@
+
+@-webkit-keyframes flip-top {
+	0% {-webkit-transform: rotateX(0deg);}
+	50% {-webkit-transform: rotateX(0deg);}
+	75% {}
+	100% {-webkit-transform: rotateX(-90deg);}
+}
+
+@-webkit-keyframes flip-down {
+	0% {visibility:visible;-webkit-transform: rotateX(90deg);}
+	50% {webkit-transform: rotateX(45deg);}
+	75% {}
+	100% {-webkit-transform: rotateX(0deg);}
+}
+
+.leaves {
+	float: left;
+	position: relative;
+	width:200px;
+	height:225px;
+	margin:5px 2px 5px 4px;
+	border-radius: 12px;
+}
+
+.wheel-box {
+	float: left;
+	position: relative;	
+}
+.wheel-box-inner {
+	top:100px;
+	width:18px;
+	height:35px;
+	padding:0px 0px 0px 0px;
+}
+
+.wheel-box-outter {
+	top:109px;
+	width:5px;
+	height:20px;
+	padding:0px 0px 0px 0px;
+}
+
+.wheel {
+	position:absolute;
+	border-radius:5px;
+	width:100%;
+	height:100%;
+	border:2px solid rgba(40,40,40,0.5);
+	background-color: #1f1f1f;
+}
+
+.wheel-inner {
+	background-image:-webkit-gradient(linear, 
+		left top, left bottom, 
+		from(rgba(0,0,0,1)), 
+		color-stop(0.0, rgba(0,0,0,0)), 
+		color-stop(0.4, rgba(0,0,0,0)), 
+		to(rgba(0,0,0,1))),
+		-webkit-gradient(radial, 0 0, 10, 10 10, 8, 
+			from(rgba(0,0,0,1)), to(rgba(100,100,100,0.8)));
+}
+
+.wheel-outter {
+	background-image:-webkit-gradient(linear, 
+		left top, left bottom, 
+		from(rgba(0,0,0,1)), 
+		color-stop(0.0, rgba(0,0,0,0)), 
+		color-stop(0.4, rgba(0,0,0,0)), 
+		to(rgba(0,0,0,1))),
+		-webkit-gradient(radial, 0 0, 10, 10 10, 10, 
+			from(rgba(0,0,0,1)), to(rgba(255,255,255,0.8)));
+}
+
+.leave {
+	width: 100%;
+	height: 50%;
+	float: left;
+	overflow:hidden;
+}
+
+.leave-top {
+	position: absolute;
+	top: 0px;
+	border-top-left-radius: 12px;
+	border-top-right-radius: 12px;
+	background-color: #1f1f1f;
+	background-image: -webkit-gradient(linear, 
+		left top, left bottom, 
+		from(rgba(0,0,0,1)),
+		to(rgba(50,50,50,1)));
+	border-top:1px solid #000;
+}
+
+.leave-bottom {
+	margin-top:0px;
+	position: absolute;
+	top:52%;
+	border-bottom-right-radius:12px;
+	border-bottom-left-radius:12px;
+	background-color: #1f1f1f;
+	background-image: -webkit-gradient(linear, 
+		left bottom, left top, 
+		from(rgba(0,0,0,1)),
+		to(rgba(50,50,50,1)));
+	text-shadow: 0.0em 0.1em 0.1em rgb(191,191,191);
+	border-bottom:1px solid #000;
+	-webkit-box-shadow:0em -0.1em 0em #888;
+}
+
+.now-top {
+}
+
+.now-bottom {
+}
+
+.flip-top {
+	-webkit-transform-origin: bottom;
+	z-index:1;
+}
+
+.flip-bottom {
+
+	-webkit-transform-origin: top;
+	z-index:1;
+}
+
+.leave-inner {
+	text-align: center;
+	position: relative;
+}
+
+.leave-text {
+	padding:0px;
+	margin:0px;
+	color:#ffffff;
+	-webkit-mask-image: -webkit-gradient(linear, 
+		left top, left bottom, 
+		from(rgba(0,0,0,0)), 
+		color-stop(0.3, rgba(0,0,0,1)), 
+		color-stop(0.7, rgba(0,0,0,1)), 
+		to(rgba(0,0,0,0)));
+	position:relative;
+}
+
+.leave-back {
+	position:absolute;
+	left:0px;
+	width:100%;
+}
+
+.leave-back-1 {
+	height:103%;
+	top:-4px;
+	border-radius:12px;
+	background-color: #1f1f1f;
+	border-bottom:1px solid #999;
+	border-top:1px solid #999;
+	-webkit-box-shadow:0em 1.0px 0.1em #111;
+}
+
+.leave-back-2 {
+	height:103%;
+	top:-3px;
+	border-radius:12px;
+	background-color: #1f1f1f;
+	border-bottom:1px solid #333;
+	border-top:1px solid #333;
+	-webkit-box-shadow:0em -1.0px 0.8em #111;
+}
+
+.leave-back-3 {
+	height:103%;
+	top:-1px;
+	border-radius:12px;
+	background-color: #1f1f1f;
+	border-bottom:1px solid #666;
+	border-top:1px solid #222;
+}
+
+.datetime {
+	text-shadow: 0.0em 0.1em 0.0em rgb(200,200,200);
+	position:absolute;
+	color:#fff;
+	z-index:100000;
+	top:100%;
+	left:10px;
+	font:0.8em "arial";
+	font-weight:500;
+	-webkit-mask-image: -webkit-gradient(linear, 
+		left top, left bottom, 
+		from(rgba(0,0,0,0)), 
+		color-stop(0.3, rgba(0,0,0,1)), 
+		color-stop(0.7, rgba(0,0,0,1)), 
+		to(rgba(0,0,0,0)));
+}
+
+#flipclock {
+	position:absolute;
+	z-index: 99;
+	border:0px solid lightgray;
+}
+
+.doc {
+	position:absolute;
+	width:100%;
+	height:100%;
+	background-image:-webkit-gradient(radial, 
+		50% 50%, 20, 50% 50%, 2000, 
+		from(rgba(15,15,15,0.9)), color-stop(14%, rgba(0,0,0,1)), to(rgba(5,5,5,1)))
+}

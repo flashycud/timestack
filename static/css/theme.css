@@ -1,0 +1,287 @@
+/*======================= CSS Clear ========================*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+textarea {
+    resize: none;
+}
+/*======================= CSS Clear ========================*/
+
+body{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	position: relative;
+	background: #000;
+}
+.header{
+	min-width: 700px;
+	position: relative;
+	color: #FFF;
+	font-weight: 900;
+	font-size: 120px;
+	z-index: 100;
+	overflow: visible;
+}
+.quote{
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 400px;
+	height: 250px;
+	color: #DDD;
+	font-weight: 500;
+	font-size: 20px;
+	line-height: 20px;
+	z-index: 99;
+	overflow: visible;
+	text-align: right;
+}
+.background{
+	background-image: -moz-linear-gradient(45deg,
+		#555555,
+		#111111);
+	background-image: -webkit-gradient(linear,right top,left bottom,
+		color-stop(0,rgba(0,0,0,0.6)),
+		color-stop(1,rgba(0,0,0,0)));
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#555555', EndColorStr='#111111')";
+}
+.main{
+	position: relative;
+	background: #333;
+	overflow: hidden;
+	width: 100%;
+	height: 85%;
+	min-width: 1000px;
+	z-index: 1;
+	overflow: hidden;
+}
+#counterHolder{
+	width: 2000px;
+	position: absolute;
+	bottom: 0;
+	/* for IE */
+	filter:alpha(opacity=10);
+	/* CSS3 standard */
+	opacity:0.1;
+	color: #FFF;
+	font-weight: 900;
+	font-size: 20px;
+}
+#imgHolder{
+width: 100%;
+	height: 100%;
+	position: relative;
+	z-index: 50;
+}
+img.slideshow {
+	/*position: absolute;
+	z-index: 1;*/
+}
+#navHolder {
+	position: relative;
+	overflow: visible;
+	z-index:999;
+}
+img.loadingImage {
+	position: absolute;
+}
+img.navigator{
+	height:90%;
+	padding:5px 2px;
+}
+.hide{
+	display:none;
+}
+.cover{
+	position: absolute;
+	height: 100%;
+	width: 120%;
+	margin-left: -100px;
+	-moz-box-shadow:inset 0 0 100px 30px #000000;
+	-webkit-box-shadow:inset 0 0 100px 30px #000000;
+   	box-shadow:inset 0 0 100px 30px #000000;
+   	z-index: 90;
+}
+#profileHolder{
+/*	position: absolute;
+*/	text-align: right;
+	bottom:0;
+	right:0;
+	color: #AAA;
+	font-weight: normal;
+	font-size: 20px;
+	margin-bottom:5px;
+	z-index: 100;
+}
+#profileHolder a{
+	color: #FFF;
+	text-decoration: none;
+}
+#profileHolder a:hover{
+	color: #FFF;
+	text-decoration: underline;
+}
+.menu-button{
+	z-index:101;
+	position:absolute;
+	bottom: -25;
+}
+#songHolder{
+	position: absolute;
+	overflow: hidden;
+	width:100%;
+}
+#songHolder a,#songHolder a:hover{
+	color:#FFF;
+	text-decoration:none;
+}
+#songHolder div{
+	position:relative;
+	display:block;
+	width:100%;
+	color: #FFF;
+	background: #111;
+	border-top: #333 1px solid;
+	border-collapse:collapse;
+	/*background-image: -moz-linear-gradient(top,#555,#444);
+	background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0,#555),color-stop(1,#444));
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#555',EndColorStr='#444')";*/
+}
+#songHolder div:hover{
+	*background-image: -moz-linear-gradient(top,#333,#222);
+	background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0,#333),color-stop(1,#222));
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#333',EndColorStr='#222')";
+}
+.playlist,.add-song-holder,.settings{
+	z-index: 110;
+	position: relative;
+	background: rgba(0,0,0,0.25);
+	width:600px;
+	height: 300px;
+}
+.add-song-holder,.settings{
+	width:100%;
+	position: absolute;
+	background: rgba(0,0,0,0.5);
+}
+.playlist .title, .add-message .title{
+	color: #FFF;
+	font-weight: 600;
+	font-size: 20px;
+	margin-left: -10px;
+	line-height: 25px;
+}
+.add-song{
+	position: relative;
+	width: 320px;
+	margin: auto;
+	top: 100px;
+	background: #222;
+	padding: 10px 10px 10px 20px;
+}
+
+.textField{
+	vertical-align: middle;
+	background-color: #333;
+	border: 1px #666 solid;
+	height: 30px;
+	line-height: 20px;
+	width: 200px;
+	color: #FFF;
+	font-size: 13px;
+}
+.buttonField{
+	margin:0;
+	background-image: -moz-linear-gradient(top,#666,#444);
+	background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0,#666),color-stop(1,#444));
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#666',EndColorStr='#444')";
+	-moz-box-shadow: 0 1px 4px rgba(0, 0, 0, .3);
+	-webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, .3);
+	box-shadow: 0 1px 4px rgba(0, 0, 0, .3);
+/*	-moz-border-radius: 1em;
+	-webkit-border-radius: 1em;
+	border-radius: 1em;
+*/	border: none;
+	padding: 5px 10px;
+	cursor: pointer;
+	color: #FFF;
+}
+.buttonField:hover{
+	background-image: -moz-linear-gradient(top,#777,#555);
+	background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0,#777),color-stop(1,#555));
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#777',EndColorStr='#555')";
+}
+.main-menu{
+	background-image: -moz-linear-gradient(top,#fe8626,#e17822);
+	background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0,#fe8626),color-stop(1,#e17822));
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#fe8626',EndColorStr='#e17822')";
+}
+.main-menu:hover{
+	background-image: -moz-linear-gradient(top,#fe943f,#e38437);
+	background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0,#fe943f),color-stop(1,#e38437));
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#fe943f',EndColorStr='#e38437')";
+}
+.intro-textField{
+	height: 25px;
+	line-height: 20px;
+	color: #666;
+	font-size: 10px;
+}
+.message{
+	height:100%;
+	overflow:hidden;
+	width: 440px;
+}
+#messageHolder{
+	z-index: 100;
+	position: absolute;
+	overflow: hidden;
+	width:100%;
+}
+.add-message{
+	z-index: 101;
+	position: relative;
+	margin-top: 40px;
+	margin-bottom: 10px;
+	padding: 10px 10px 10px 20px;
+	background-color: rgba(0,0,0,0.5);
+}

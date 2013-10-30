@@ -1,0 +1,20 @@
+from django.conf.urls.defaults import *
+
+urlpatterns = patterns('timestack.views',
+    (r'^$','index'),
+    (r'^login/$','login'),
+    (r'^logout/$','logout'),
+    (r'^home/$','home'),
+    (r'^getphotos/$','get_photos'),
+    (r'^getphotos/(?P<page>\d+)/$','get_photos'),
+    (r'^getphotos/(?P<page>\d+)/(?P<limit>\d+)/$','get_photos'),
+    # (r'^getphotos/(?P<page>\d+)/(?P<limit>\d+)/(?P<person>\d+)/$','get_photos'),
+    (r'^addsong/$','add_song'),
+    (r'^getplaylist/$','get_playlist'),
+    (r'^removesong/(?P<pk>\d+)/$','remove_song'),
+    (r'^getmessages/$','list_message'),
+    (r'^removemessage/(?P<pk>\d+)/$','remove_message'),
+    (r'^addmessage/$','add_message'),
+    (r'^addalbum/(?P<aid>\d+)/$','add_album'),
+    (r'^unauthorized/$','unauthorized'),
+)

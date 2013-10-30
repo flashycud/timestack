@@ -1,0 +1,122 @@
+{% load media %}
+<html>
+  <header>
+  <title>Timestack</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.5.min.js"></script>
+    {% include_media 'main.css' %}{% include_media 'main.js' %}
+    <script type="text/javascript">
+      $(document).ready(function() {
+        initializeWebsite();
+      });
+    </script>
+  </header>
+  <body style="min-height:500px;min-width:1100px;">
+    <div class="header">
+      <!-- <span>Timestack</span> -->
+     <!--  <embed id="youtubeHolder" style="position:absolute;opacity:0.2;" width="95px" height="27px" name="plugin" src="http://www.youtube.com/v/r8ZEMhC8Hfo?version=3&amp;autoplay=1&amp;loop=1&amp;playlist=FhfxjlICDvY,C19MjWKB4s4,zWuuwBWNrgE,vfsUa54cwGA,iUXBBDMSHRE" type="application/x-shockwave-flash"> -->
+      {% if song_enable %}
+      <embed id="youtubeHolder" style="position:absolute;opacity:0.2;" width="95px" height="27px" name="plugin" src="http://www.youtube.com/v/{{first_song}}?version=3&amp;autoplay=1&amp;loop=1&amp;playlist={{playlist}}" type="application/x-shockwave-flash">
+      {% endif %}
+      {% if user %}
+      <div id="profileHolder"> 
+        Welcome, <a href="{{user.profile.profile_url}}">{{user.first_name}}&nbsp;{{user.last_name}}</a> | <a href="/logout">logout</a>
+      </div>
+      {% endif %}
+    </div>
+    <div class="main">
+      <span class="quote background"></span>
+      <span class="quote">
+      <br/>
+      from the moment the story started, <br/>
+      every second creates memories . . . . <br/>
+      <br/>
+      despite the chosen paths, <br/>
+      despite the forgotten memories, <br/>
+      <br/>
+      this place will always be here, <br/>
+      I will let... This Clock ...<br/> 
+      ...continue counting <br/><br/>:')
+      </span>
+      <div id="imgHolder">
+        <div class="cover"></div>
+        <img id="loading" style="opacity:0.5;height:100%;width:100%;position:absolute;left:0;top:0;z-index:1;" src="{% media_url 'img/ajax-loader.gif'%}"/>
+        <div style="position:absolute;width:100%;height:100%;top:0;bottom:0;left:0;right:0;">
+          <div class="menu playlist closed">
+            <span id="playlist-button" class="buttonField menu-button main-menu">Playlist</span>
+            <div class="menu add-song-holder closed">
+              <span id="add-song-button" class="buttonField menu-button">Add a Song</span>
+              <div class="add-song">
+                <span class="title">Add a Song</span>
+                <form id="songAddForm">
+                  <input class="textField intro-textField" id="link" name="link" type="text" value="Paste YouTube Link Here..."/>
+                  <input class="buttonField" id="submitLink" name="submitLink" type="submit" value="Add"/>
+                  <input class="buttonField" id="cancelLink" name="cancelLink" type="button" value="Cancel"/>
+                  <span class="status"></span>
+                </form>
+              </div>
+            </div>
+            <div class="menu settings closed">
+              <span id="setting-button" class="buttonField menu-button">Setting</span>
+            </div>
+            <div style="overflow:hidden;position:relative;margin-left:auto;margin-right:auto;top:40px;width:80%;height:80%;">
+              <div id="songHolder">
+                <!-- playlist -->
+              </div>
+            </div>
+          </div>
+          <div class="message">
+            <div style="z-index:100;overflow:hidden;position:relative;margin-left:auto;margin-right:auto;width:100%;height:100%;">
+              <div class ="add-message">
+                <span class="title">Send a message</span>
+                <form id="msgAddForm">
+                    <textarea style="width:375px;height:60px;" class="textField intro-textField" id="msg" name="message" type="text">Add your message here...</textarea>
+                    <input class="buttonField" id="submitMsg" name="submitLink" type="submit" value="Send"/>
+                    <span class="status"></span>
+                </form>
+              </div>
+              <div id="messageHolder">
+                <!-- playlist -->
+              </div>
+          </div>
+        </div>
+        <div id="counterHolder"></div>
+      </div>
+      <div id="flipclock" style="top: 220px; left: 308px; ">
+        <div class="wheel-box wheel-box-outter"><div class="wheel wheel-outter"></div></div>
+        <div id="hh-leaves" class="leaves">
+          <div class="leave-back leave-back-1"></div>
+          <div class="leave-back leave-back-2"></div>
+          <div class="leave-back leave-back-3"></div>
+          <div class="leave leave-top now-top"><div class="leave-inner leave-inner-top" style="top: 24px; "><span class="leave-text" style="font: normal normal normal 160px/normal arial; font-weight: 900; "></span></div></div>
+          <div class="leave leave-bottom now-bottom"><div class="leave-inner leave-inner-bottom" style="top: -92.8px; "><span class="leave-text" style="font: normal normal normal 160px/normal arial; font-weight: 900; "></span><div class="datetime"></div></div></div>
+          <div class="leave leave-top flip-top" style="-webkit-animation-name: flip-top; -webkit-animation-duration: 0.5s; -webkit-animation-timing-function: linear; -webkit-animation-delay: 0ms; -webkit-animation-iteration-count: initial; -webkit-animation-direction: initial; -webkit-animation-fill-mode: initial; visibility: hidden; "><div class="leave-inner leave-inner-top" style="top: 24px; "><span class="leave-text" style="font: normal normal normal 160px/normal arial; font-weight: 900; "></span></div></div>
+          <div class="leave leave-bottom flip-bottom" style="visibility: hidden; -webkit-animation-name: flip-down; -webkit-animation-duration: 0.5s; -webkit-animation-timing-function: ease-out; -webkit-animation-delay: 0ms; -webkit-animation-iteration-count: initial; -webkit-animation-direction: initial; -webkit-animation-fill-mode: initial; "><div class="leave-inner leave-inner-bottom" style="top: -92.8px; "><span class="leave-text" style="font: normal normal normal 160px/normal arial; font-weight: 900; "></span></div></div>
+        </div>
+        <div class="wheel-box wheel-box-inner"><div class="wheel wheel-inner"></div></div>
+        <div id="mm-leaves" class="leaves">
+          <div class="leave-back leave-back-1"></div>
+          <div class="leave-back leave-back-2"></div>
+          <div class="leave-back leave-back-3"></div>
+          <div class="leave leave-top now-top"><div class="leave-inner leave-inner-top" style="top: 24px; "><span class="leave-text" style="font: normal normal normal 160px/normal arial; font-weight: 900; "></span></div></div>
+          <div class="leave leave-bottom now-bottom"><div class="leave-inner leave-inner-bottom" style="top: -92.8px; "><span class="leave-text" style="font: normal normal normal 160px/normal arial; font-weight: 900; "></span></div></div>
+          <div class="leave leave-top flip-top" style="-webkit-animation-name: flip-top; -webkit-animation-duration: 0.5s; -webkit-animation-timing-function: linear; -webkit-animation-delay: 0ms; -webkit-animation-iteration-count: initial; -webkit-animation-direction: initial; -webkit-animation-fill-mode: initial; visibility: hidden; "><div class="leave-inner leave-inner-top" style="top: 24px; "><span class="leave-text" style="font: normal normal normal 160px/normal arial; font-weight: 900; "></span></div></div>
+          <div class="leave leave-bottom flip-bottom" style="visibility: hidden; -webkit-animation-name: flip-down; -webkit-animation-duration: 0.5s; -webkit-animation-timing-function: ease-out; -webkit-animation-delay: 0ms; -webkit-animation-iteration-count: initial; -webkit-animation-direction: initial; -webkit-animation-fill-mode: initial; "><div class="leave-inner leave-inner-bottom" style="top: -92.8px; "><span class="leave-text" style="font: normal normal normal 160px/normal arial; font-weight: 900; "></span></div></div>
+        </div>
+        <div class="wheel-box wheel-box-inner"><div class="wheel wheel-inner"></div></div>
+        <div id="ss-leaves" class="leaves">
+          <div class="leave-back leave-back-1"></div>
+          <div class="leave-back leave-back-2"></div>
+          <div class="leave-back leave-back-3"></div>
+          <div class="leave leave-top now-top"><div class="leave-inner leave-inner-top" style="top: 24px; "><span class="leave-text" style="font: normal normal normal 160px/normal arial; font-weight: 900; "></span></div></div>
+          <div class="leave leave-bottom now-bottom"><div class="leave-inner leave-inner-bottom" style="top: -92.8px; "><span class="leave-text" style="font: normal normal normal 160px/normal arial; font-weight: 900; "></span></div></div>
+          <div class="leave leave-top flip-top" style="-webkit-animation-name: flip-top; -webkit-animation-duration: 0.5s; -webkit-animation-timing-function: linear; -webkit-animation-delay: 0ms; -webkit-animation-iteration-count: initial; -webkit-animation-direction: initial; -webkit-animation-fill-mode: initial; visibility: hidden; "><div class="leave-inner leave-inner-top" style="top: 24px; "><span class="leave-text" style="font: normal normal normal 160px/normal arial; font-weight: 900; "></span></div></div>
+          <div class="leave leave-bottom flip-bottom" style="visibility: hidden; -webkit-animation-name: flip-down; -webkit-animation-duration: 0.5s; -webkit-animation-timing-function: ease-out; -webkit-animation-delay: 0ms; -webkit-animation-iteration-count: initial; -webkit-animation-direction: initial; -webkit-animation-fill-mode: initial; "><div class="leave-inner leave-inner-bottom" style="top: -92.8px; "><span class="leave-text" style="font: normal normal normal 160px/normal arial; font-weight: 900; "></span></div></div>
+        </div>
+        <div class="wheel-box wheel-box-outter"><div class="wheel wheel-outter"></div></div>
+      </div>
+    </div>
+    <div style="position:fixed;left:0;bottom:0;width:100%;">
+    <div id="navHolder"></div>
+    </div>
+  </body>
+</html>

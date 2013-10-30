@@ -1,0 +1,36 @@
+<html>
+  <header>
+  <title>Timestack</title>
+  </header>
+  <body>
+
+  <style type="text/css">
+  body{
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    background-color: #222;
+    background-image: -moz-linear-gradient(top,
+    #555555,
+    #111111);
+  background-image: -webkit-gradient(linear,left top,left bottom,
+    color-stop(0,#555555),
+    color-stop(1,#111111));
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#555555', EndColorStr='#111111')";
+  }
+  div#login_btn{
+    width:154px;
+  }
+  </style>
+    <div id="login_btn">
+    <div class="" style="margin-bottom:20px;margin-right:auto;width:300px; color:#FFF">THERE ARE SOME MINOR ERRORS!<br/>Sorry {{user.first_name}}&nbsp;{{user.last_name}},</div><a title="Go back to your page" style="color:#FFF;text-decoration:none;" href="/home/"> <img style="margin:5px 0 5px 0;" src="https://graph.facebook.com/{{user}}/picture?type=large"/><div>Back to home</div></a></div>
+
+  <script>
+    function setCenter(){
+      var docHeight = document.documentElement.offsetHeight;
+      var btnHeight = document.getElementById('login_btn').offsetHeight;
+      document.getElementById('login_btn').style.margin=(docHeight-btnHeight)/2+"px auto 0 auto";
+    }
+    setCenter();
+    window.addEventListener('resize',setCenter);
+  </script>
+  </body>
+</html>
